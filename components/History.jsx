@@ -29,7 +29,7 @@ const Hystory = ({contractAddress, toggleHystory, lastTransactionColor}) => {
   }
 
   const getBasics = async() => {
-    if(!window.ethereum) return
+    if(!window.ethereum || !contractAddress) return
     try {
       const escrowContract = await getSmartContract(contractAddress, Escrow.abi, "provider")
       const nextIdInHex = await escrowContract.getNextId()

@@ -84,6 +84,7 @@ const Contract = ({contractAddress, currentAccount}) => {
 
   const getBasics = async() => {
     try {
+      if(!currentAccount || !contractAddress) return
       const escrowContract = await getSmartContract(contractAddress, Escrow.abi, "provider")
       const destinationAddress = await escrowContract.I_RECIPIENT()
       setDestinationAddress(destinationAddress)
