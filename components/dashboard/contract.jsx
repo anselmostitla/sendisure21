@@ -45,7 +45,7 @@ const Contract = ({contractAddress, currentAccount}) => {
         setToAddress(defaultPlaceholder)
       })      
     }
-  },[contractAddress, currentAccount])
+  },[])
 
   useEffect(() => {
     setTimeout(() => {
