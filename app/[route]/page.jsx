@@ -43,35 +43,11 @@ const Dashboard = () => {
   const [attemps, setAttemps] = useState()
   const [openMenu, setOpenMenu] = useState(false);   
 
-  // useEffect(() => {
-  //   // uploadUntilAccount()
-  // },[attemps])
 
   useEffect(() => {
     getEscrowAddress()
   },[])
 
-  // const uploadUntilAccount = () => {
-  //   setTimeout(()=>{
-  //     if(!account){
-  //       setAttemps(attemps+1)
-  //     }else if(account) getEsentials()
-  //   },500)
-  // }
-
-  const getEsentials = async () => {
-    // const factory = getSmartContract(EscrowFactory.address, EscrowFactory.abi, "provider")
-    // const route = params.route
-    // const escrowAddress = await factory.addressAssociateToRoute(route?.toLowerCase())
-    
-    if(escrowAddress?.toString() != '0x0000000000000000000000000000000000000000' && escrowAddress != undefined){
-      // setEscrowAddress(escrowAddress)
-      // menuValues("contract");
-      // const escrowContract = await getSmartContract(escrowAddress,Escrow.abi, "provider")
-      // const destinationAddress = await escrowContract.I_RECIPIENT()
-      setAreEqualAccounts(String(destinationAddress).toLowerCase() == String(account).toLowerCase())
-    }
-  }
 
   const getEscrowAddress = async() => {
     menuValues("contract"); 
@@ -88,16 +64,6 @@ const Dashboard = () => {
       // menuValues("contract");  
     } else {
       router.push('/')
-    }
-  }
-
-  const checkIfAccountsAreEqual = () => {
-    if(account && escrowAddress){
-      const areEqualAccounts = String(destinationAddress).toLowerCase() == String(account).toLowerCase()
-      setAreEqualAccounts(areEqualAccounts)
-      if(areEqualAccounts){
-        setColorForEqualAccounts('text-red-500')
-      }
     }
   }
 
